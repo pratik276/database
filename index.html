@@ -36,15 +36,6 @@
       transform: scale(1.2);
     }
 
-    body.dark-mode {
-      background-color: #121212;
-      color: #ffffff;
-    }
-
-    body.dark-mode .masthead {
-      background-color: #333333;
-    }
-
     /* Make sure to adjust the positioning for the canvas */
     #background {
       position: fixed;
@@ -89,10 +80,6 @@
       </div>
     </div>
   </header>
-  <!-- Dark/Light Mode Toggle -->
-  <div class="text-center mt-4">
-    <button id="theme-toggle" class="btn btn-light">Switch to Dark Mode</button>
-  </div>
   <!-- Copyright Section -->
   <div class="copyright py-4 text-center text-white">
     <div class="container">
@@ -127,4 +114,24 @@
         ctx.beginPath();
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-       
+        const radius = Math.random() * 2;
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+      }
+      requestAnimationFrame(drawStars);
+    }
+
+    drawStars();
+
+    // Parallax effect for stars
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY;
+      const stars = document.querySelectorAll('.star');
+      stars.forEach(star => {
+        star.style.transform = `translateY(${offset * 0.5}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
