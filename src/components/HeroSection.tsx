@@ -1,7 +1,7 @@
-
 import { useEffect, useRef } from 'react';
 import FuturisticButton from './FuturisticButton';
 import { ArrowDown } from 'lucide-react';
+import brpImage from '../assets/brp.jpg';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -73,7 +73,7 @@ const HeroSection = () => {
             <div className="w-full h-full rounded-full overflow-hidden relative">
               <img
                 ref={imageRef}
-                src="brp.jpg" 
+                src={brpImage} 
                 alt="Pratik Om Shrestha"
                 className="w-full h-full object-cover"
               />
